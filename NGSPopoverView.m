@@ -38,6 +38,7 @@
 @interface NGSPopoverView ()
 
 @property (nonatomic, strong) UIView *borderedView;
+@property (nonatomic, assign) UIEdgeInsets customInsets;
 
 //Show on window
 @property (nonatomic, strong) UIView *blurView;
@@ -70,6 +71,12 @@
 
 -(void)setContentView:(UIView *)contentView
 {
+    CGFloat inset = MAX(10.f, _cornerRadius);
+    [self setContentView:contentView withInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
+}
+-(void)setContentView:(UIView *)contentView withInsets:(UIEdgeInsets)margins
+{
+    self.customInsets = margins;
     if (_contentView)
     {
         [_contentView removeFromSuperview];
@@ -82,7 +89,6 @@
     {
         [contentView removeFromSuperview];
         
-        UIEdgeInsets margins = UIEdgeInsetsMake(10, 10, 10, 10);
         UIEdgeInsets insets = [self edgeInsets];
         margins.left += insets.left;
         margins.right += insets.right;
@@ -94,14 +100,10 @@
     }
 }
 
--(void)setArrowDirection:(NSUInteger)arrowDirection
+-(void)setArrowDirection:(NGSPopoverArrowPosition)arrowDirection
 {
     NSAssert((arrowDirection >=0 && arrowDirection < NGSPopoverArrowPositionCount), @"");
-    if (arrowDirection != _arrowDirection)
-    {
-        _arrowDirection = arrowDirection;
-        self.contentView = _contentView;//insets changed
-    }
+    _arrowDirection = arrowDirection;
 }
 
 -(UIColor *)tintColor
@@ -400,6 +402,11 @@
     if (self.arrowDirection == NGSPopoverArrowPositionAnywhere)
     {
         self.arrowDirection = [self arrowDirectionForView:view superView:superview];
+        //renew insets
+        if (_contentView)
+        {
+            [self setContentView:_contentView withInsets:_customInsets];
+        }
     }
     
     
