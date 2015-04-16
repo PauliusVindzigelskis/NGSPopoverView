@@ -6,7 +6,7 @@ Simple popover view to show any kind of content which is subclass of UIView
 
 * Just import NGSPopoverView .h and .m files
 
-### Test sample ###
+### Sample code ###
 
 
 ```
