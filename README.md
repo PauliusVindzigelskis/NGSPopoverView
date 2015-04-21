@@ -22,6 +22,6 @@ Simple popover view to show any kind of content which is subclass of UIView
                                                                  arrowSize:CGSizeMake(20, 10)];
     popover.contentView = label;
     
-    [popover showFromView:sender dismissOnTap:YES fillScreen:NO];
+    [popover showFromView:sender animated:YES];
 }
 ```
