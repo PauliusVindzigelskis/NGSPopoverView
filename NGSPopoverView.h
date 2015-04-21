@@ -17,8 +17,20 @@ typedef NS_ENUM(NSInteger, NGSPopoverArrowPosition)
     NGSPopoverArrowPositionCount
 };
 
+@class NGSPopoverView;
+@protocol  NGSPopoverViewDelegate <NSObject>
+@optional
+- (void) popoverView:(NGSPopoverView*) popoverView willShowAnimated:(BOOL) animated;
+- (void) popoverView:(NGSPopoverView*) popoverView didShowAnimated:(BOOL) animated;
+- (void) popoverView:(NGSPopoverView*) popoverView willHideAnimated:(BOOL) animated;
+- (void) popoverView:(NGSPopoverView*) popoverView didHideAnimated:(BOOL) animated;
+- (BOOL) popoverViewShouldDismissAnimated:(NGSPopoverView*) popoverView;
+@end
+
 IB_DESIGNABLE
 @interface NGSPopoverView : UIView
+
+@property (nonatomic, weak) id <NGSPopoverViewDelegate> delegate;
 
 /*!
  * @brief Rouncded corner radius. Default is 0 (no rounded corner)
@@ -56,6 +68,18 @@ IB_DESIGNABLE
 @property (nonatomic, assign) CGFloat maskedSourceViewCornerRadius;
 
 /*!
+ * @brief Default value is YES. If implemented, calls popoverViewShouldDismissAnimated: delegate method just before dismissal.
+ * @note Dismisses animated. If needed non-animated dismissal, use popoverViewShouldDismissAnimated: delegate method.
+ */
+@property (nonatomic, assign) BOOL dismissOnTap;
+
+/*!
+ * @brief Bool value to indicate if popover should fill window axis depending on where arrow is: fills horizontaly if arrow is vertical and fills vertically if arrow is horizontal.
+ * @note Recommended to use with 0 corner radius for better look.
+ */
+@property (nonatomic, assign) BOOL fillScreen;
+
+/*!
  * @brief Use setContentView: method to assign content view.
  * @param cornerRadius Rounded corner radius in CGFloat value. Can be 0.
  * @param arrowDirection Direction of arrow - left, right, top or bottom.
@@ -74,19 +98,11 @@ IB_DESIGNABLE
 /**
  Animated show popover on app window with black see-through background. Default params is dissmissOnTap = YES and fillScreen = NO. For custom implementation use showFromView:dismissOnTap:fillScreen: method.
  */
--(void)showFromView:(UIView *)view;
-
-/**
- Animated show popover on app window with black see-through background.
- @param view View from which popover will be focused
- @param dismissOnTap Bool value to indicate if popover should be dismissed when tapped on it (including background)
- @param fillScreen Bool value to indicate if popover should fill window axis depending on where arrow is: fills horizontaly if arrow is vertical and fills vertically if arrow is horizontal.
- */
--(void)showFromView:(UIView *)view dismissOnTap:(BOOL)dismissOnTap fillScreen:(BOOL)fillScreen;
+-(void)showFromView:(UIView *)view animated:(BOOL)animated;
 
 /**
  Dismiss popover animated
  */
-- (void) dismiss;
+- (void) dismissAnimated:(BOOL)animated;
 
 @end

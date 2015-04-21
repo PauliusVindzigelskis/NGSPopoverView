@@ -64,6 +64,7 @@
         _arrowDirection = direction;
         _cornerRadius = corner;
         _arrowSize = arrSize;
+        _dismissOnTap = YES;
         self.backgroundColor = [UIColor clearColor];//default color
     }
     return self;
@@ -389,11 +390,7 @@
 
 #pragma mark - Show on window - Public
 
--(void)showFromView:(UIView *)view
-{
-    [self showFromView:view dismissOnTap:YES fillScreen:NO];
-}
--(void)showFromView:(UIView *)view dismissOnTap:(BOOL)dismissOnTap fillScreen:(BOOL)fillScreen
+-(void)showFromView:(UIView *)view animated:(BOOL)animated
 {
     NSAssert([view isKindOfClass:[UIView class]], @"Should be any kind of UIView");
     self.fromView = view;
@@ -411,9 +408,9 @@
     
     
     UIView *blurView = [[UIView alloc] init];
-    if (dismissOnTap)
+    if (self.dismissOnTap)
     {
-        [blurView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)]];
+        [blurView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedToDismiss)]];
     }
     self.blurView = blurView;
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
@@ -440,7 +437,7 @@
     { // constraints to parent
         BOOL isVertical = [self isArrowVertical];
         NSString *inEqualString = @">=";
-        NSString *equalString = fillScreen ? @"" : @">=";
+        NSString *equalString = self.fillScreen ? @"" : @">=";
         NSString *verticalConstraintsFormat = [NSString stringWithFormat:@"V:|-(%@0)-[view]-(%@0)-|",
                                                isVertical ? inEqualString : equalString,
                                                isVertical ? inEqualString : equalString];
@@ -495,28 +492,75 @@
     second.priority = priority;
     [superview addConstraints:@[first, second]];
     
+    if ([self.delegate respondsToSelector:@selector(popoverView:willShowAnimated:)])
+    {
+        [self.delegate popoverView:self willShowAnimated:animated];
+    }
+    
     //animations
-    blurView.alpha = 0.f;
-    [UIView animateWithDuration:0.3f animations:^{
-        blurView.alpha = 1.f;
-    }];
+    void (^completion)(BOOL finished) = ^(BOOL finished) {
+        if ([self.delegate respondsToSelector:@selector(popoverView:didShowAnimated:)])
+        {
+            [self.delegate popoverView:self didShowAnimated:animated];
+        }
+    };
+    
+    if (animated)
+    {
+        blurView.alpha = 0.f;
+        [UIView animateWithDuration:0.3f animations:^{
+            blurView.alpha = 1.f;
+        } completion:completion];
+    } else {
+        completion(YES);
+    }
 }
 
-- (void) dismiss
+- (void) tappedToDismiss
+{
+    BOOL shouldDismiss = YES;
+    if ([self.delegate respondsToSelector:@selector(popoverViewShouldDismissAnimated:)])
+    {
+        shouldDismiss = [self.delegate popoverViewShouldDismissAnimated:self];
+    }
+    
+    if (shouldDismiss)
+    {
+        [self dismissAnimated:YES];
+    }
+}
+
+- (void) dismissAnimated:(BOOL)animated
 {
     if (self.blurView)
     {
-        //animations
-        self.blurView.alpha = 1.f;
-        [UIView animateWithDuration:0.3f animations:^{
-            self.blurView.alpha = 0.f;
-        } completion:^(BOOL finished) {
+        if ([self.delegate respondsToSelector:@selector(popoverView:willHideAnimated:)])
+        {
+            [self.delegate popoverView:self willHideAnimated:animated];
+        }
+        
+        void (^completion)(BOOL finished) = ^(BOOL finished){
             [self.blurView removeFromSuperview];
             [self removeFromSuperview];
             
             self.blurView = nil;
             self.fromView = nil;
-        }];
+            
+            
+            if ([self.delegate respondsToSelector:@selector(popoverView:didHideAnimated:)])
+            {
+                [self.delegate popoverView:self didHideAnimated:animated];
+            }
+        };
+        if (animated)
+        {
+            self.blurView.alpha = 1.f;
+            [UIView animateWithDuration:0.3f animations:^{
+                self.blurView.alpha = 0.f;
+            } completion:completion];
+        } else {
+            completion(YES);
+        }
         
     }
 }
