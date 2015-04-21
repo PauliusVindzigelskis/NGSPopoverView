@@ -10,7 +10,7 @@ Simple popover view to show any kind of content which is subclass of UIView
 
 
 ### Rounded corners ###
-![iOS Simulator Screen Shot 2015 bal. 21 11.48.52.png](https://bitbucket.org/repo/8yGqo8/images/1752092786-iOS%20Simulator%20Screen%20Shot%202015%20bal.%2021%2011.48.52.png)
+![rounded_corner.png](https://bitbucket.org/repo/8yGqo8/images/3035014097-rounded_corner.png)
 ```
 #!objective-c
 
@@ -29,7 +29,7 @@ Simple popover view to show any kind of content which is subclass of UIView
 ```
 
 ### Fill screen ###
-![iOS Simulator Screen Shot 2015 bal. 21 11.49.53.png](https://bitbucket.org/repo/8yGqo8/images/2324410341-iOS%20Simulator%20Screen%20Shot%202015%20bal.%2021%2011.49.53.png)
+![fill_screen.png](https://bitbucket.org/repo/8yGqo8/images/3076218040-fill_screen.png)
 ```
 #!objective-c
 
@@ -48,7 +48,7 @@ Simple popover view to show any kind of content which is subclass of UIView
 }
 ```
 ### Mask source view with transparency ###
-![iOS Simulator Screen Shot 2015 bal. 21 11.52.03.png](https://bitbucket.org/repo/8yGqo8/images/3404845128-iOS%20Simulator%20Screen%20Shot%202015%20bal.%2021%2011.52.03.png)
+![mask_view.png](https://bitbucket.org/repo/8yGqo8/images/3619268285-mask_view.png)
 ```
 #!objective-c
 
