@@ -1,10 +1,14 @@
 # README #
 
-Simple popover view to show any kind of content which is subclass of UIView
+Universal simple popover view to show any kind of content which is subclass of UIView. Works in both - iPhone and iPad. Easy customizable.
 
-## How do I get set up? ##
+## FAQ ##
 
-* Just import NGSPopoverView .h and .m files
+* How do I get set up?
+Just import NGSPopoverView .h and .m files.
+
+* How to change color of it from white to whatever I need?
+Use tintColor. Default is white.
 
 ## Samples ##
 
