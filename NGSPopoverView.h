@@ -46,6 +46,16 @@ IB_DESIGNABLE
 @property (nonatomic, strong) UIView *contentView;
 
 /*!
+ * @brief When shows using showFromView: method, semi transparent black view hides all views under it. Enable this to exclude source view with rect equal to its size and rounded corner equal to maskedSourceViewCornerRadius property.
+ */
+@property (nonatomic, assign) BOOL shouldMaskSourceViewToVisible;
+
+/*!
+ * @brief When shows using showFromView: method, semi transparent black view hides all views under it. Enable shouldMaskSourceViewToVisible property to exclude source view with rect equal to its size and rounded corner equal to this property.
+ */
+@property (nonatomic, assign) CGFloat maskedSourceViewCornerRadius;
+
+/*!
  * @brief Use setContentView: method to assign content view.
  * @param cornerRadius Rounded corner radius in CGFloat value. Can be 0.
  * @param arrowDirection Direction of arrow - left, right, top or bottom.

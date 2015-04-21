@@ -411,13 +411,29 @@
     
     
     UIView *blurView = [[UIView alloc] init];
-    blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
     if (dismissOnTap)
     {
         [blurView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)]];
     }
     self.blurView = blurView;
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
+    if (self.shouldMaskSourceViewToVisible){
+        //Semi transparent black layer with hole in it to show source view
+        CGFloat radius = self.maskedSourceViewCornerRadius;
+        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:superview.frame cornerRadius:0];
+        UIBezierPath *circlePath = [UIBezierPath bezierPathWithRoundedRect:[superview convertRect:view.frame fromView:view.superview] cornerRadius:radius];
+        [path appendPath:circlePath];
+        [path setUsesEvenOddFillRule:YES];
+        
+        CAShapeLayer *fillLayer = [CAShapeLayer layer];
+        fillLayer.path = path.CGPath;
+        fillLayer.fillRule = kCAFillRuleEvenOdd;
+        fillLayer.fillColor = [UIColor blackColor].CGColor;
+        fillLayer.opacity = 0.5;
+        [blurView.layer addSublayer:fillLayer];
+    } else {
+        blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
+    }
     
     [blurView addSubview:self];
     self.translatesAutoresizingMaskIntoConstraints = NO;
