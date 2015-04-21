@@ -10,7 +10,7 @@ Simple popover view to show any kind of content which is subclass of UIView
 
 
 ### Rounded corners ###
-![rounded_corner.png](https://bitbucket.org/repo/8yGqo8/images/3035014097-rounded_corner.png)
+![rounded_corner.png](https://bitbucket.org/repo/8yGqo8/images/2516946630-rounded_corner.png)
 
 ```
 #!objective-c
