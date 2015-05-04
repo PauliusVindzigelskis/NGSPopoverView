@@ -241,18 +241,10 @@
     
     UIEdgeInsets insets = UIEdgeInsetsZero;
     
-    CGPoint point1 = CGPointZero;
-    CGPoint point1_control = CGPointZero;
-    
-    CGPoint point2 = CGPointZero;
-    
-    CGPoint point3 = CGPointZero;
-    CGPoint point3_control = CGPointZero;
+    CGPoint point1, point2, point3 = CGPointZero;
     
     CGFloat arrowWidth = _arrowSize.width;
     CGFloat arrowHeight = _arrowSize.height;
-    CGFloat controlHorizontalAlpha = arrowWidth/6.f;
-    CGFloat controlVerticalAlpha = arrowHeight/6.f;
     
     switch ((NGSPopoverArrowPosition)self.arrowDirection) {
         case NGSPopoverArrowPositionBottom:
@@ -260,12 +252,8 @@
             startPosition.y = self.frame.size.height - 0.5f;
             
             point1 = CGPointMake(startPosition.x - arrowWidth/2, startPosition.y - arrowHeight);
-            point1_control = CGPointMake(startPosition.x - controlHorizontalAlpha, point1.y);
-            
             point2 = CGPointMake(point1.x + arrowWidth, point1.y);
-            
             point3 = startPosition;
-            point3_control = CGPointMake(point1_control.x + 2 * controlHorizontalAlpha, point1_control.y);
             
             insets.bottom = arrowHeight;
         }   break;
@@ -274,13 +262,8 @@
             startPosition.x = 0.5f;
             
             point1 = CGPointMake(startPosition.x + arrowWidth, startPosition.y - arrowHeight/2);
-            point1_control = CGPointMake(point1.x, startPosition.y - controlVerticalAlpha);
-            
             point2 = CGPointMake(point1.x, startPosition.y + arrowHeight/2);
-            
             point3 = startPosition;
-            point3_control = CGPointMake(point1_control.x, point1_control.y + 2*controlVerticalAlpha);
-            
             
             insets.left = arrowWidth;
         }   break;
@@ -289,12 +272,8 @@
             startPosition.y = 0.5f;
             
             point1 = CGPointMake(startPosition.x + arrowWidth/2, startPosition.y + arrowHeight);
-            point1_control = CGPointMake(startPosition.x + controlHorizontalAlpha, point1.y);
-            
             point2 = CGPointMake(startPosition.x - arrowWidth/2, point1.y);
-            
             point3 = startPosition;
-            point3_control = CGPointMake(startPosition.x - controlHorizontalAlpha, point1_control.y);
             
             insets.top = arrowHeight;
         }   break;
@@ -303,12 +282,8 @@
             startPosition.x = self.frame.size.width - 0.5f;
                 
             point1 = CGPointMake(startPosition.x - arrowWidth, startPosition.y + arrowHeight/2);
-            point1_control = CGPointMake(point1.x, startPosition.y + controlVerticalAlpha);
-            
             point2 = CGPointMake(point1.x, startPosition.y - arrowHeight/2);
-            
             point3 = startPosition;
-            point3_control = CGPointMake(point1_control.x, startPosition.y - controlVerticalAlpha);
             
             insets.right = arrowWidth;
         }   break;
