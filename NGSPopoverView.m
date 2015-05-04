@@ -43,6 +43,7 @@
 //Show on window
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, weak) UIView *fromView;
+@property (nonatomic, assign) BOOL isArrowDirectionChanged;
 
 @end
 
@@ -105,6 +106,7 @@
 {
     NSAssert((arrowDirection >=0 && arrowDirection < NGSPopoverArrowPositionCount), @"");
     _arrowDirection = arrowDirection;
+    self.isArrowDirectionChanged = YES;
 }
 
 -(UIColor *)tintColor
@@ -399,11 +401,13 @@
     if (self.arrowDirection == NGSPopoverArrowPositionAnywhere)
     {
         self.arrowDirection = [self arrowDirectionForView:view superView:superview];
-        //renew insets
-        if (_contentView)
-        {
-            [self setContentView:_contentView withInsets:_customInsets];
-        }
+    }
+    
+    //renew insets as arrow direction might have changed from initializer.
+    if (self.isArrowDirectionChanged && _contentView)
+    {
+        self.isArrowDirectionChanged = NO;
+        [self setContentView:_contentView withInsets:_customInsets];
     }
     
     
