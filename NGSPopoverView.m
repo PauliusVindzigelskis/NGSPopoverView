@@ -44,6 +44,7 @@
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, weak) UIView *fromView;
 @property (nonatomic, assign) BOOL isArrowDirectionChanged;
+@property (nonatomic, strong) CALayer *blurLayer;
 
 @end
 
@@ -348,6 +349,16 @@
     if (self.blurView)
     {
         UIView *superview = self.blurView.superview;
+        if (self.blurLayer)
+        {
+            [self.blurLayer removeFromSuperlayer];
+            CALayer *newLayer = [self blurFillLayerWithSuperview:superview holeView:_fromView];
+            [self.blurView.layer addSublayer:newLayer];
+            self.blurLayer = newLayer;
+            
+            [self.superview bringSubviewToFront:self];
+        }
+        
         CGPoint point = [_fromView.superview convertPoint:_fromView.center toView:superview];
         
         CGFloat offset = 0;
@@ -424,18 +435,9 @@
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
     if (self.shouldMaskSourceViewToVisible){
         //Semi transparent black layer with hole in it to show source view
-        CGFloat radius = self.maskedSourceViewCornerRadius;
-        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:superview.frame cornerRadius:0];
-        UIBezierPath *circlePath = [UIBezierPath bezierPathWithRoundedRect:[superview convertRect:view.frame fromView:view.superview] cornerRadius:radius];
-        [path appendPath:circlePath];
-        [path setUsesEvenOddFillRule:YES];
-        
-        CAShapeLayer *fillLayer = [CAShapeLayer layer];
-        fillLayer.path = path.CGPath;
-        fillLayer.fillRule = kCAFillRuleEvenOdd;
-        fillLayer.fillColor = [UIColor blackColor].CGColor;
-        fillLayer.opacity = 0.5;
+        CALayer *fillLayer = [self blurFillLayerWithSuperview:superview holeView:view];
         [blurView.layer addSublayer:fillLayer];
+        self.blurLayer = fillLayer;
     } else {
         blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
     }
@@ -552,6 +554,7 @@
             [self removeFromSuperview];
             
             self.blurView = nil;
+            self.blurLayer = nil;
             self.fromView = nil;
             
             
@@ -572,6 +575,26 @@
         
     }
 }
+
+#pragma mark - Setup
+
+- (CALayer*) blurFillLayerWithSuperview:(UIView*)superview holeView:(UIView*)view
+{
+    CGFloat radius = self.maskedSourceViewCornerRadius;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:superview.frame cornerRadius:0];
+    UIBezierPath *circlePath = [UIBezierPath bezierPathWithRoundedRect:[superview convertRect:view.frame fromView:view.superview] cornerRadius:radius];
+    [path appendPath:circlePath];
+    [path setUsesEvenOddFillRule:YES];
+    
+    CAShapeLayer *fillLayer = [CAShapeLayer layer];
+    fillLayer.path = path.CGPath;
+    fillLayer.fillRule = kCAFillRuleEvenOdd;
+    fillLayer.fillColor = [UIColor blackColor].CGColor;
+    fillLayer.opacity = 0.5;
+    
+    return fillLayer;
+}
+ 
 
 
 
