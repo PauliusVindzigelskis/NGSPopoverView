@@ -96,7 +96,7 @@ IB_DESIGNABLE
 - (void) setContentView:(UIView*)view withInsets:(UIEdgeInsets)insets;
 
 /**
- Animated show popover on app window with black see-through background. Default params is dissmissOnTap = YES and fillScreen = NO. For custom implementation use showFromView:dismissOnTap:fillScreen: method.
+ Animated show popover on app window with black see-through background.
  */
 -(void)showFromView:(UIView *)view animated:(BOOL)animated;
 
