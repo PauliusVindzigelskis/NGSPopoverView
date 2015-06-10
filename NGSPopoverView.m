@@ -65,6 +65,10 @@
         _arrowDirection = direction;
         _cornerRadius = corner;
         _arrowSize = arrSize;
+        if ([self isDirectionHorizontal:direction])
+        {
+            [self switchArrowSizeValues];
+        }
         _dismissOnTap = YES;
         self.backgroundColor = [UIColor clearColor];//default color
     }
@@ -104,9 +108,34 @@
 
 -(void)setArrowDirection:(NGSPopoverArrowPosition)arrowDirection
 {
+    NGSPopoverArrowPosition oldDirection = _arrowDirection;
+    
     NSAssert((arrowDirection >=0 && arrowDirection < NGSPopoverArrowPositionCount), @"");
     _arrowDirection = arrowDirection;
     self.isArrowDirectionChanged = YES;
+    
+    if (
+        [self isDirectionHorizontal:arrowDirection]
+        ^
+        [self isDirectionHorizontal:oldDirection]
+        )
+    {
+        [self switchArrowSizeValues];
+    }
+}
+
+- (void) switchArrowSizeValues
+{
+    CGSize arrowSize = _arrowSize;
+    _arrowSize.width = arrowSize.height;
+    _arrowSize.height = arrowSize.width;
+    
+}
+
+- (BOOL) isDirectionHorizontal:(NGSPopoverArrowPosition)position
+{
+    return (position == NGSPopoverArrowPositionLeft
+            || position == NGSPopoverArrowPositionRight);
 }
 
 -(UIColor *)tintColor
