@@ -45,6 +45,7 @@
 @property (nonatomic, weak) UIView *fromView;
 @property (nonatomic, assign) BOOL isArrowDirectionChanged;
 @property (nonatomic, strong) CALayer *blurLayer;
+@property (nonatomic, strong) UIButton *dismissButton;
 
 @end
 
@@ -72,6 +73,11 @@
         }
         _dismissOnTap = YES;
         self.backgroundColor = [UIColor clearColor];//default color
+        
+        self.dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.dismissButton setTitle:@"" forState:UIControlStateNormal];
+        self.dismissButton.backgroundColor = [UIColor clearColor];
+        [self.dismissButton addTarget:self action:@selector(tappedToDismiss) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -429,7 +435,7 @@
     UIView *blurView = [[UIView alloc] init];
     if (self.dismissOnTap)
     {
-        [blurView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedToDismiss)]];
+        [blurView addSubviewFillingParent:self.dismissButton margins:UIEdgeInsetsZero];
     }
     self.blurView = blurView;
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
