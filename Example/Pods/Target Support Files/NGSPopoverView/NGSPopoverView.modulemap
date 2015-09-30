@@ -1,0 +1,6 @@
+framework module NGSPopoverView {
+  umbrella header "NGSPopoverView-umbrella.h"
+
+  export *
+  module * { export * }
+}
