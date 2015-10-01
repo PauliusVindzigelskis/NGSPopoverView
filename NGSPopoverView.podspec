@@ -10,16 +10,11 @@ Pod::Spec.new do |s|
   s.name             = "NGSPopoverView"
   s.version          = "1.0.0"
   s.summary          = "Universal simple popover view to show any kind of content which is subclass of UIView."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+  s.homepage         = "https://bitbucket.org/pvindzigelskis/ngspopoverview"
+ 
   s.description      = "Universal simple popover view to show any kind of content which is subclass of UIView. Works in both - iPhone and iPad. Easy customizable."
 
-  s.homepage         = "https://bitbucket.org/pvindzigelskis/ngspopoverview"
-  s.screenshots     = "https://bitbucket.org/repo/8yGqo8/images/2516946630-rounded_corner.png", "https://bitbucket.org/repo/8yGqo8/images/3076218040-fill_screen.png", "https://bitbucket.org/repo/8yGqo8/images/3619268285-mask_view.png"
+  s.screenshots      = "https://bitbucket.org/repo/8yGqo8/images/2516946630-rounded_corner.png", "https://bitbucket.org/repo/8yGqo8/images/3076218040-fill_screen.png", "https://bitbucket.org/repo/8yGqo8/images/3619268285-mask_view.png"
   s.license          = 'MIT'
   s.author           = { "Paulius Vindzigelskis" => "p.vindzigelskis@gmail.com" }
   s.source           = { :git => "https://bitbucket.org/pvindzigelskis/ngspopoverview.git", :tag => "Release/R#{s.version}" }
