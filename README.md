@@ -11,8 +11,7 @@ pod 'NGSPopoverView'
 
 ### General ###
 
-Include NGSPopoverView .h and .m files in your target. 
-#import "NGSPopoverView.h" where needed.
+Include NGSPopoverView .h and .m files in your target. #import "NGSPopoverView.h" where needed.
 
 ## FAQ ##
 
