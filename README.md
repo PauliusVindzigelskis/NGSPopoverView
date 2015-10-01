@@ -16,7 +16,7 @@ Include NGSPopoverView .h and .m files in your target. #import "NGSPopoverView.h
 ## FAQ ##
 
 * How to change color of it from white to whatever I need?
-Use tintColor property. Default is white.
+Use tintColor property. Default value is white.
 
 ## Samples ##
 
