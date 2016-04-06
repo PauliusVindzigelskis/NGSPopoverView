@@ -1,1 +1,0 @@
- const unsigned char NGSPopoverViewVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:NGSPopoverView  PROJECT:Pods-0.1.0" "\n"; const double NGSPopoverViewVersionNumber __attribute__ ((used)) = (double)0.1;
