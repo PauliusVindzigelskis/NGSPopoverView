@@ -41,7 +41,7 @@ Use tintColor property. Default value is white.
     label.numberOfLines = 0;
     
     NGSPopoverView *popover = [[NGSPopoverView alloc] initWithCornerRadius:10.f
-                                                                 direction:NGSPopoverArrowPositionAnywhere
+                                                                 direction:NGSPopoverArrowPositionAutomatic
                                                                  arrowSize:CGSizeMake(20, 10)];
     popover.contentView = label;
     
@@ -60,7 +60,7 @@ Use tintColor property. Default value is white.
     label.numberOfLines = 0;
     
     NGSPopoverView *popover = [[NGSPopoverView alloc] initWithCornerRadius:0.f
-                                                                 direction:NGSPopoverArrowPositionAnywhere
+                                                                 direction:NGSPopoverArrowPositionAutomatic
                                                                  arrowSize:CGSizeMake(20, 10)];
     popover.contentView = label;
     popover.fillScreen = YES;
@@ -79,7 +79,7 @@ Use tintColor property. Default value is white.
     label.numberOfLines = 0;
     
     NGSPopoverView *popover = [[NGSPopoverView alloc] initWithCornerRadius:10.f
-                                                                 direction:NGSPopoverArrowPositionAnywhere
+                                                                 direction:NGSPopoverArrowPositionAutomatic
                                                                  arrowSize:CGSizeMake(20, 10)];
     popover.contentView = label;
     popover.shouldMaskSourceViewToVisible = YES;
