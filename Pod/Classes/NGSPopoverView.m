@@ -37,15 +37,13 @@
 
 @interface NGSPopoverView ()
 
-@property (nonatomic, strong) UIView *borderedView;
 @property (nonatomic, assign) UIEdgeInsets customInsets;
 
 //Show on window
-@property (nonatomic, strong) UIView *blurView;
+@property (nonatomic, weak) UIView *blurView;
 @property (nonatomic, weak) UIView *fromView;
 @property (nonatomic, assign) BOOL isArrowDirectionChanged;
-@property (nonatomic, strong) CALayer *blurLayer;
-@property (nonatomic, strong) UIButton *dismissButton;
+@property (nonatomic, weak) CALayer *blurLayer;
 
 @end
 
@@ -73,11 +71,6 @@
         }
         _dismissOnTap = YES;
         self.backgroundColor = [UIColor clearColor];//default color
-        
-        self.dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.dismissButton setTitle:@"" forState:UIControlStateNormal];
-        self.dismissButton.backgroundColor = [UIColor clearColor];
-        [self.dismissButton addTarget:self action:@selector(tappedToDismiss) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -435,7 +428,11 @@
     UIView *blurView = [[UIView alloc] init];
     if (self.dismissOnTap)
     {
-        [blurView addSubviewFillingParent:self.dismissButton margins:UIEdgeInsetsZero];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:@"" forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor clearColor];
+        [button addTarget:self action:@selector(tappedToDismiss) forControlEvents:UIControlEventTouchUpInside];
+        [blurView addSubviewFillingParent:button margins:UIEdgeInsetsZero];
     }
     self.blurView = blurView;
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];

@@ -55,7 +55,7 @@ IB_DESIGNABLE
 /*!
  * @brief Default setter uses setContentView:withInsets: method with corner radius insets from each side, but minimum 10pt.
  */
-@property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, weak) UIView *contentView;
 
 /*!
  * @brief When shows using showFromView: method, semi transparent black view hides all views under it. Enable this to exclude source view with rect equal to its size and rounded corner equal to maskedSourceViewCornerRadius property.
