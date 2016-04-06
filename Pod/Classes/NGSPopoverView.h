@@ -9,7 +9,7 @@
 
 typedef NS_ENUM(NSInteger, NGSPopoverArrowPosition)
 {
-    NGSPopoverArrowPositionAnywhere,
+    NGSPopoverArrowPositionAutomatic,
     NGSPopoverArrowPositionBottom,
     NGSPopoverArrowPositionLeft,
     NGSPopoverArrowPositionTop,

@@ -412,7 +412,7 @@
     self.fromView = view;
     UIView *superview = view.window;
     
-    if (self.arrowDirection == NGSPopoverArrowPositionAnywhere)
+    if (self.arrowDirection == NGSPopoverArrowPositionAutomatic)
     {
         self.arrowDirection = [self arrowDirectionForView:view superView:superview];
     }
