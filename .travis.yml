@@ -7,9 +7,9 @@ language: objective-c
 
 before_install:
 - pod lib lint
-- cd Example
-- pod install
-- cd ..
+- gem install xcpretty
+- gem install cocoapods # Since Travis is not always on latest version
+- pod install --project-directory=Example
 
 script:
 - set -o pipefail && xcodebuild test -workspace Example/NGSPopoverView.xcworkspace -scheme NGSPopoverViewExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
