@@ -1,10 +1,10 @@
 
 # NGSPopoverView
 
-[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/welcome-page?flat)](https://github.com/PauliusVindzigelskis/NGSPopoverView)
 [![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
 [![License](https://img.shields.io/cocoapods/l/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
+[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/welcome-page?flat)](https://github.com/PauliusVindzigelskis/NGSPopoverView)
 
 # README #
 
