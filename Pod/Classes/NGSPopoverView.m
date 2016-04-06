@@ -6,34 +6,7 @@
 //
 
 #import "NGSPopoverView.h"
-
-//Autolayout utilities
-@interface UIView(NGSPopoverView_AutoLayout)
--(void)addSubviewFillingParent:(UIView *)view margins:(UIEdgeInsets)margins;
-@end
-
-@implementation UIView(NGSPopoverView_AutoLayout)
-
--(void)addSubviewFillingParent:(UIView *)view margins:(UIEdgeInsets)margins
-{
-    [self addSubview:view];
-    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    NSDictionary *viewsDict = NSDictionaryOfVariableBindings(view);
-    NSDictionary *metrics = @{@"top"     : @(margins.top),
-                              @"bottom"  : @(margins.bottom),
-                              @"left"    : @(margins.left),
-                              @"right"   : @(margins.right)
-                              };
-    
-    NSArray *constraintsV = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-top-[view]-bottom-|" options:0 metrics:metrics views:viewsDict];
-    NSArray *constraintsH = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[view]-right-|" options:0 metrics:metrics views:viewsDict];
-    
-    [self addConstraints:constraintsV];
-    [self addConstraints:constraintsH];
-}
-
-@end
+#import "UIView+NGSPopoverView.h"
 
 @interface NGSPopoverView ()
 
