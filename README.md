@@ -2,7 +2,6 @@
 # NGSPopoverView
 
 [![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
-[![CI Status](http://img.shields.io/travis/Paulius Vindzigelskis/NGSButtonAnimator.svg?style=flat)](https://travis-ci.org/PauliusVindzigelskis/NGSPopoverView)
 [![License](https://img.shields.io/cocoapods/l/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
 [![Platform](https://img.shields.io/cocoapods/p/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
 
