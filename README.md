@@ -33,8 +33,6 @@ Use tintColor property. Default value is white.
 ![rounded_corner.png](https://bitbucket.org/repo/8yGqo8/images/2516946630-rounded_corner.png)
 
 ```
-#!objective-c
-
 - (IBAction)buttonPressed:(UIButton *)sender {
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Some text\nAnd some more";
@@ -52,8 +50,6 @@ Use tintColor property. Default value is white.
 ### Fill screen ###
 ![fill_screen.png](https://bitbucket.org/repo/8yGqo8/images/3076218040-fill_screen.png)
 ```
-#!objective-c
-
 - (IBAction)buttonPressed:(UIButton *)sender {
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Some text\nAnd some more";
@@ -71,8 +67,6 @@ Use tintColor property. Default value is white.
 ### Mask source view with transparency ###
 ![mask_view.png](https://bitbucket.org/repo/8yGqo8/images/3619268285-mask_view.png)
 ```
-#!objective-c
-
 - (IBAction)buttonPressed:(UIButton *)sender {
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Some text\nAnd some more";
