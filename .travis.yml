@@ -5,6 +5,11 @@ language: objective-c
 #xcode_scheme: NGSPopoverViewExample
 #xcode_sdk: iphonesimulator9.2
 
+before_install:
+- pod lib lint
+- cd Example
+- pod install
+- cd ..
+
 script:
 - set -o pipefail && xcodebuild test -workspace Example/NGSPopoverView.xcworkspace -scheme NGSPopoverViewExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
