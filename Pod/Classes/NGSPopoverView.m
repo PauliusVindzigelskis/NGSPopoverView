@@ -406,15 +406,15 @@
 
 #pragma mark - Show on window - Public
 
--(void)showFromView:(UIView *)view animated:(BOOL)animated
+-(void)showFromView:(UIView *)anchorView animated:(BOOL)animated
 {
-    NSAssert([view isKindOfClass:[UIView class]], @"Should be any kind of UIView");
-    self.fromView = view;
-    UIView *superview = view.window;
+    NSAssert([anchorView isKindOfClass:[UIView class]], @"Should be any kind of UIView");
+    self.fromView = anchorView;
+    UIView *superview = anchorView.window;
     
     if (self.arrowDirection == NGSPopoverArrowPositionAutomatic)
     {
-        self.arrowDirection = [self arrowDirectionForView:view superView:superview];
+        self.arrowDirection = [self arrowDirectionForView:anchorView superView:superview];
     }
     
     //renew insets as arrow direction might have changed from initializer.
@@ -438,7 +438,7 @@
     [superview addSubviewFillingParent:blurView margins:UIEdgeInsetsZero];
     if (self.shouldMaskSourceViewToVisible){
         //Semi transparent black layer with hole in it to show source view
-        CALayer *fillLayer = [self blurFillLayerWithSuperview:superview holeView:view];
+        CALayer *fillLayer = [self blurFillLayerWithSuperview:superview holeView:anchorView];
         [blurView.layer addSublayer:fillLayer];
         self.blurLayer = fillLayer;
     } else {
@@ -473,29 +473,29 @@
             
         case NGSPopoverArrowPositionBottom:
         {
-            first = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:0.f];
-            second = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0f constant:offset];
+            first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.f];
+            second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0f constant:offset];
         }   break;
         
         default:
         case NGSPopoverArrowPositionTop:
         {
-            first = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:0.f];
-            second = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:-offset];
+            first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.f];
+            second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:-offset];
         }   break;
             
         case NGSPopoverArrowPositionLeft:
         {
-            first = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0f constant:-offset];
-            second = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.f];
+            first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0f constant:-offset];
+            second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.f];
 
         }   break;
             
             
         case NGSPopoverArrowPositionRight:
         {
-            first = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:offset];
-            second = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.f];
+            first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:offset];
+            second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.f];
         }   break;
         
 
