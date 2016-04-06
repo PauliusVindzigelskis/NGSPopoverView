@@ -10,5 +10,5 @@ before_install:
 - gem install xcpretty
 - pod install --project-directory=Example
 
-script:
-- set -o pipefail && xcodebuild test -workspace Example/NGSPopoverView.xcworkspace -scheme NGSPopoverViewExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+xcode_workspace: Example/NGSPopoverView.xcworkspace
+xcode_scheme: NGSPopoverViewExample
