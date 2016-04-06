@@ -89,4 +89,4 @@ Use tintColor property. Default value is white.
 }
 ```
 
-[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/NGSPopoverView/README?flat)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/ngspopoverview?flat)](https://github.com/igrigorik/ga-beacon)
