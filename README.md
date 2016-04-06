@@ -1,3 +1,10 @@
+
+# NGSPopoverView
+
+[![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
+[![License](https://img.shields.io/cocoapods/l/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
+[![Platform](https://img.shields.io/cocoapods/p/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
+
 # README #
 
 Universal simple popover view to show any kind of content which is subclass of UIView. Works in both - iPhone and iPad. Easy customizable.
