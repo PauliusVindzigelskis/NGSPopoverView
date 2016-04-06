@@ -4,7 +4,6 @@
 [![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
 [![License](https://img.shields.io/cocoapods/l/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
 [![Platform](https://img.shields.io/cocoapods/p/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSButtonAnimator)
-[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/NGSPopoverView/README?flat)](https://github.com/igrigorik/ga-beacon)
 
 # README #
 
@@ -89,3 +88,5 @@ Use tintColor property. Default value is white.
     [popover showFromView:sender animated:YES];
 }
 ```
+
+[![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/NGSPopoverView/README?flat)](https://github.com/igrigorik/ga-beacon)
