@@ -5,10 +5,10 @@ language: objective-c
 #xcode_scheme: NGSPopoverViewExample
 #xcode_sdk: iphonesimulator9.2
 
+podfile: Example/Podfile
+
 before_install:
 - pod lib lint
-- gem install xcpretty
-- pod install --project-directory=Example
 
 xcode_workspace: Example/NGSPopoverView.xcworkspace
 xcode_scheme: NGSPopoverViewExample
