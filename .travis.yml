@@ -1,1 +1,14 @@
 language: objective-c
+
+#osx_image: xcode7.2
+#xcode_workspace: Example/NGSPopoverView.xcworkspace
+#xcode_scheme: NGSPopoverViewExample
+#xcode_sdk: iphonesimulator9.2
+
+podfile: Example/Podfile
+
+before_install:
+- pod lib lint
+
+xcode_workspace: Example/NGSPopoverView.xcworkspace
+xcode_scheme: NGSPopoverViewExample
