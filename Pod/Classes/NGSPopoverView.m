@@ -271,6 +271,7 @@
             
             insets.left = arrowWidth;
         }   break;
+        default:
         case NGSPopoverArrowPositionTop:
         {
             startPosition.y = 0.5f;
@@ -291,9 +292,6 @@
             
             insets.right = arrowWidth;
         }   break;
-            
-        default:
-            break;
     }
     
     
