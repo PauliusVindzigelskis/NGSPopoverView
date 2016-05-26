@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-@import NGSPopoverView;
+#import "NGSPopoverView.h"
 
 @interface ViewController ()
 

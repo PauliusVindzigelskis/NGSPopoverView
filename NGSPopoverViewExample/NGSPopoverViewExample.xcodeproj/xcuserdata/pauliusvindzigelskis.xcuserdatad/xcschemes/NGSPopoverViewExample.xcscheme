@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,77 +14,70 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "NGSPopoverView_Example.app"
-               BlueprintName = "NGSPopoverView_Example"
-               ReferencedContainer = "container:NGSPopoverView.xcodeproj">
+               BlueprintIdentifier = "D879E7661CF7215E002F73D8"
+               BuildableName = "NGSPopoverViewExample.app"
+               BlueprintName = "NGSPopoverViewExample"
+               ReferencedContainer = "container:NGSPopoverViewExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "NGSPopoverView_Tests.xctest"
-               BlueprintName = "NGSPopoverView_Tests"
-               ReferencedContainer = "container:NGSPopoverView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "NGSPopoverView_Example.app"
-            BlueprintName = "NGSPopoverView_Example"
-            ReferencedContainer = "container:NGSPopoverView.xcodeproj">
+            BlueprintIdentifier = "D879E7661CF7215E002F73D8"
+            BuildableName = "NGSPopoverViewExample.app"
+            BlueprintName = "NGSPopoverViewExample"
+            ReferencedContainer = "container:NGSPopoverViewExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "NGSPopoverView_Example.app"
-            BlueprintName = "NGSPopoverView_Example"
-            ReferencedContainer = "container:NGSPopoverView.xcodeproj">
+            BlueprintIdentifier = "D879E7661CF7215E002F73D8"
+            BuildableName = "NGSPopoverViewExample.app"
+            BlueprintName = "NGSPopoverViewExample"
+            ReferencedContainer = "container:NGSPopoverViewExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "NGSPopoverView_Example.app"
-            BlueprintName = "NGSPopoverView_Example"
-            ReferencedContainer = "container:NGSPopoverView.xcodeproj">
+            BlueprintIdentifier = "D879E7661CF7215E002F73D8"
+            BuildableName = "NGSPopoverViewExample.app"
+            BlueprintName = "NGSPopoverViewExample"
+            ReferencedContainer = "container:NGSPopoverViewExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
