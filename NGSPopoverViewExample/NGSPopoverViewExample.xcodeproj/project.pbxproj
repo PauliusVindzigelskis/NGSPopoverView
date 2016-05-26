@@ -16,6 +16,9 @@
 		D879E78C1CF721B2002F73D8 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D879E7871CF721B2002F73D8 /* .gitkeep */; };
 		D879E78D1CF721B2002F73D8 /* NGSPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D879E7891CF721B2002F73D8 /* NGSPopoverView.m */; };
 		D879E78E1CF721B2002F73D8 /* UIView+NGSPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D879E78B1CF721B2002F73D8 /* UIView+NGSPopoverView.m */; };
+		D879E7931CF7298A002F73D8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D879E7901CF7298A002F73D8 /* LICENSE */; };
+		D879E7941CF7298A002F73D8 /* NGSPopoverView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D879E7911CF7298A002F73D8 /* NGSPopoverView.podspec */; };
+		D879E7951CF7298A002F73D8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = D879E7921CF7298A002F73D8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		D879E7891CF721B2002F73D8 /* NGSPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGSPopoverView.m; sourceTree = "<group>"; };
 		D879E78A1CF721B2002F73D8 /* UIView+NGSPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NGSPopoverView.h"; sourceTree = "<group>"; };
 		D879E78B1CF721B2002F73D8 /* UIView+NGSPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NGSPopoverView.m"; sourceTree = "<group>"; };
+		D879E7901CF7298A002F73D8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D879E7911CF7298A002F73D8 /* NGSPopoverView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NGSPopoverView.podspec; path = ../NGSPopoverView.podspec; sourceTree = "<group>"; };
+		D879E7921CF7298A002F73D8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				D879E7691CF7215E002F73D8 /* NGSPopoverViewExample */,
+				D879E78F1CF7296E002F73D8 /* Pods data */,
 				D879E7681CF7215E002F73D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +106,16 @@
 			);
 			name = NGSPopoverView;
 			path = ../../Pod/Classes;
+			sourceTree = "<group>";
+		};
+		D879E78F1CF7296E002F73D8 /* Pods data */ = {
+			isa = PBXGroup;
+			children = (
+				D879E7901CF7298A002F73D8 /* LICENSE */,
+				D879E7911CF7298A002F73D8 /* NGSPopoverView.podspec */,
+				D879E7921CF7298A002F73D8 /* README.md */,
+			);
+			name = "Pods data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +177,10 @@
 			files = (
 				D879E7841CF7218D002F73D8 /* Main.storyboard in Resources */,
 				D879E77A1CF7215E002F73D8 /* LaunchScreen.storyboard in Resources */,
+				D879E7941CF7298A002F73D8 /* NGSPopoverView.podspec in Resources */,
 				D879E7771CF7215E002F73D8 /* Assets.xcassets in Resources */,
 				D879E78C1CF721B2002F73D8 /* .gitkeep in Resources */,
+				D879E7931CF7298A002F73D8 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D879E7951CF7298A002F73D8 /* README.md in Sources */,
 				D879E7851CF7218D002F73D8 /* ViewController.m in Sources */,
 				D879E78D1CF721B2002F73D8 /* NGSPopoverView.m in Sources */,
 				D879E76F1CF7215E002F73D8 /* AppDelegate.m in Sources */,
