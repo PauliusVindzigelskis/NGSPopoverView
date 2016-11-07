@@ -84,3 +84,6 @@ Use tintColor property. Default value is white.
 ```
 
 [![Analytics](https://ga-beacon.appspot.com/UA-62210028-4/ngspopoverview?flat)](https://github.com/igrigorik/ga-beacon)
+
+<a target="_blank" href="http://www.hey.lt/details.php?id=ngspopoverview"><img width="88" height="31" border="0"
+src="http://www.hey.lt/count.php?id=ngspopoverview" alt="Hey.lt - Nemokamas lankytojų skaitliukas"></a>
