@@ -26,10 +26,9 @@ Include NGSPopoverView .h and .m files in your target. #import "NGSPopoverView.h
 
 Use tintColor property. Default value is white.
 
-* I added UITableView inside popover, but it shows empty content. What I did wrong?
+* I added UITableView inside popover, but it shows empty content. What did I do wrong?
 
-NGSPopoverView uses AutoLayout to calculate it's size. Add height/width constraints for UITableView as it doesn't have 
-intrinsicContentSize property set up.
+NGSPopoverView uses AutoLayout to calculate it's size. Add height (required) and width (optional) constraints to UITableView as it doesn't have intrinsicContentSize property set up.
 
 ## Samples ##
 
