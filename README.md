@@ -23,7 +23,13 @@ Include NGSPopoverView .h and .m files in your target. #import "NGSPopoverView.h
 ## FAQ ##
 
 * How to change color of it from white to whatever I need?
+
 Use tintColor property. Default value is white.
+
+* I added UITableView inside popover, but it shows empty content. What I did wrong?
+
+NGSPopoverView uses AutoLayout to calculate it's size. Add height/width constraints for UITableView as it doesn't have 
+intrinsicContentSize property set up.
 
 ## Samples ##
 
