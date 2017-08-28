@@ -17,6 +17,8 @@
 @property (nonatomic, weak) UIView *fromView;
 @property (nonatomic, assign) BOOL isArrowDirectionChanged;
 @property (nonatomic, weak) CALayer *blurLayer;
+@property (nonatomic, assign) NSTimeInterval showTimePassed;
+@property (nonatomic, assign) BOOL autoDismissAfterMinTime;
 
 @end
 
@@ -269,6 +271,7 @@
             
             insets.left = arrowWidth;
         }   break;
+        default:
         case NGSPopoverArrowPositionTop:
         {
             startPosition.y = 0.5f;
@@ -289,9 +292,6 @@
             
             insets.right = arrowWidth;
         }   break;
-            
-        default:
-            break;
     }
     
     
@@ -500,19 +500,41 @@
     } else {
         completion(YES);
     }
+    
+    self.showTimePassed = 0;
+    self.autoDismissAfterMinTime = NO;
+    if (self.minShowTimeInterval)
+    {
+        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    }
 }
 
 - (void) tappedToDismiss
 {
-    BOOL shouldDismiss = YES;
+    BOOL shouldDismiss = self.showTimePassed >= self.minShowTimeInterval;
     if ([self.delegate respondsToSelector:@selector(popoverViewShouldDismissAnimated:)])
     {
         shouldDismiss = [self.delegate popoverViewShouldDismissAnimated:self];
+    } else {
+        self.autoDismissAfterMinTime = YES;
     }
     
     if (shouldDismiss)
     {
         [self dismissAnimated:YES];
+    }
+}
+
+- (void) timerTick:(NSTimer*)timer
+{
+    self.showTimePassed += timer.timeInterval;
+    if (self.showTimePassed >= self.minShowTimeInterval)
+    {
+        [timer invalidate];
+        if (self.autoDismissAfterMinTime)
+        {
+            [self tappedToDismiss];
+        }
     }
 }
 

@@ -80,6 +80,12 @@ IB_DESIGNABLE
 @property (nonatomic, assign) BOOL fillScreen;
 
 /*!
+ * @brief Minimum time to show popover. If user tries to dismiss earlier, popover waits for timeout and dismisses automatically.
+ * @note Default value is 0.
+ */
+@property (nonatomic, assign) NSTimeInterval minShowTimeInterval;
+
+/*!
  * @brief Use setContentView: method to assign content view.
  * @param cornerRadius Rounded corner radius in CGFloat value. Can be 0.
  * @param arrowDirection Direction of arrow - left, right, top or bottom.

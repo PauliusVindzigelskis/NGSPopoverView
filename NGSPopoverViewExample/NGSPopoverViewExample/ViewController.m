@@ -7,13 +7,34 @@
 //
 
 #import "ViewController.h"
-@import NGSPopoverView;
+#import "NGSPopoverView.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *minTimeIntervalField;
 
 @end
 
 @implementation ViewController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //accessory view
+    UIToolbar *tipToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    tipToolbar.barStyle = UIBarStyleBlackOpaque;
+    tipToolbar.items = [NSArray arrayWithObjects:
+                        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                      target:nil
+                                                                      action:nil],
+                        [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                         style:UIBarButtonItemStyleDone                                                        target:self.minTimeIntervalField
+                                                        action:@selector(resignFirstResponder)],
+                        nil];
+    [tipToolbar sizeToFit];
+    [self.minTimeIntervalField setInputAccessoryView:tipToolbar];
+}
 
 - (NGSPopoverView*) popoverViewWithCornerRadius:(CGFloat)cornerRadius
 {
@@ -25,6 +46,7 @@
     label.numberOfLines = 0;
     
     popover.contentView = label;
+    popover.minShowTimeInterval = [self.minTimeIntervalField.text floatValue];
     
     return popover;
 }

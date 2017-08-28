@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  NGSPopoverViewExample
 //
-//  Created by Paulius Vindzigelskis on 06/04/16.
+//  Created by Paulius Vindzigelskis on 26/05/16.
 //  Copyright © 2016 Paulius Vindzigelskis. All rights reserved.
 //
 
