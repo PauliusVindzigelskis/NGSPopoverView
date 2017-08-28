@@ -91,9 +91,9 @@ IB_DESIGNABLE
  * @param arrowDirection Direction of arrow - left, right, top or bottom.
  * @param arrowSize Arrow dimensions in CGSize. If not square, look differs for vertical and horizontal arrow.
  */
--(instancetype)initWithCornerRadius:(CGFloat)corner
-                          direction:(NGSPopoverArrowPosition)direction
-                          arrowSize:(CGSize)arrSize;
+-(instancetype)initWithCornerRadius:(CGFloat)cornerRadius
+                          direction:(NGSPopoverArrowPosition)arrowDirection
+                          arrowSize:(CGSize)arrowSize;
 /*!
  * @brief Don't add content view manually! This method adds it with automatic position calculation according to arrow size and position.
  * @param view View to make popover's content view.
