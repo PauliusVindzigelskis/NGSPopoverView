@@ -10,5 +10,5 @@ podfile: Example/Podfile
 before_install:
 - pod lib lint
 
-xcode_workspace: Example/NGSPopoverView.xcworkspace
+xcode_workspace: NGSPopoverViewExample/NGSPopoverViewExample.xcodeproj
 xcode_scheme: NGSPopoverViewExample
