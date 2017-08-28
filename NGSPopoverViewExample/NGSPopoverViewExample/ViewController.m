@@ -53,6 +53,7 @@
 
 - (IBAction)firstPressed:(id)sender {
     NGSPopoverView *popover = [self popoverViewWithCornerRadius:5.f];
+    popover.shouldMaskSourceViewToVisible = YES;
     
     [popover showFromView:sender animated:YES];
 }
@@ -64,9 +65,10 @@
     [popover showFromView:sender animated:YES];
 }
 
-- (IBAction)thirdPressed:(id)sender {
+- (IBAction)thirdPressed:(UIButton *)sender {
     NGSPopoverView *popover = [self popoverViewWithCornerRadius:5.f];
     popover.shouldMaskSourceViewToVisible = YES;
+    popover.maskedSourceViewCornerRadius = sender.frame.size.width / 2.f;
     
     [popover showFromView:sender animated:YES];
     
@@ -74,8 +76,6 @@
 
 - (IBAction)forthPressed:(UIButton *)sender {
     NGSPopoverView *popover = [self popoverViewWithCornerRadius:5.f];
-    popover.shouldMaskSourceViewToVisible = YES;
-    popover.maskedSourceViewCornerRadius = sender.frame.size.width / 2.f;
     
     [popover showFromView:sender animated:YES];
     
