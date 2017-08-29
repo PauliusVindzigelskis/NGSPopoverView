@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/PauliusVindzigelskis/NGSPopoverView.svg?branch=R1.1.0)](https://travis-ci.org/PauliusVindzigelskis/NGSPopoverView)
 [![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
-[![License](https://img.shields.io/cocoapods/l/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/PauliusVindzigelskis/NGSPopoverView/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/NGSPopoverView.svg?style=flat)](http://cocoapods.org/pods/NGSPopoverView)
 
 # README #
