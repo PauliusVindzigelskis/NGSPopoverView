@@ -12,3 +12,5 @@ before_install:
 Language: objective-c
 xcode_project: NGSPopoverViewExample/NGSPopoverViewExample.xcodeproj
 xcode_scheme: NGSPopoverViewExample
+
+script: xcodebuild clean build -sdk iphonesimulator -project NGSPopoverViewExample/NGSPopoverViewExample.xcodeproj -scheme NGSPopoverViewExample CODE_SIGNING_REQUIRED=NO
