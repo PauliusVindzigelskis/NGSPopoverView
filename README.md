@@ -3,7 +3,7 @@
 
 [![Version](https://img.shields.io/cocoapods/v/NGSPopoverView.svg)](http://cocoapods.org/pods/NGSPopoverView)
 [![Build Status](https://travis-ci.org/PauliusVindzigelskis/NGSPopoverView.svg?branch=R1.1.0)](https://travis-ci.org/PauliusVindzigelskis/NGSPopoverView)
-[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://github.com/PauliusVindzigelskis/NGSPopoverVieww)
+[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://github.com/PauliusVindzigelskis/NGSPopoverView)
 [![Language](https://img.shields.io/badge/language-ObjC-blue.svg)](https://github.com/PauliusVindzigelskis/NGSPopoverView)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/PauliusVindzigelskis/NGSPopoverView/master/LICENSE)
 
