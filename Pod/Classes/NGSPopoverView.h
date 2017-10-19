@@ -89,7 +89,7 @@ IB_DESIGNABLE
  * @brief Tint Color around popover
  * @note Default value is Black with 50% transparancy.
  */
-@property (nonatomic, assign) UIColor *outsideColor;
+@property (nonatomic, strong) UIColor *outsideColor;
 
 /*!
  * @brief Use setContentView: method to assign content view.
