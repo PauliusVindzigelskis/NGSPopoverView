@@ -86,6 +86,12 @@ IB_DESIGNABLE
 @property (nonatomic, assign) NSTimeInterval minShowTimeInterval;
 
 /*!
+ * @brief Tint Color around popover
+ * @note Default value is Black with 50% transparancy.
+ */
+@property (nonatomic, assign) UIColor *outsideColor;
+
+/*!
  * @brief Use setContentView: method to assign content view.
  * @param cornerRadius Rounded corner radius in CGFloat value. Can be 0.
  * @param arrowDirection Direction of arrow - left, right, top or bottom.

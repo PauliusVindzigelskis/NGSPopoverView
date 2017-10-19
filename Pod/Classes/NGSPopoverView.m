@@ -415,7 +415,8 @@
         [blurView.layer addSublayer:fillLayer];
         self.blurLayer = fillLayer;
     } else {
-        blurView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5f];
+        UIColor *color = self.outsideColor ? : [UIColor colorWithWhite:0.f alpha:0.5f];
+        blurView.backgroundColor = color;
     }
     
     [blurView addSubview:self];
@@ -587,8 +588,16 @@
     CAShapeLayer *fillLayer = [CAShapeLayer layer];
     fillLayer.path = path.CGPath;
     fillLayer.fillRule = kCAFillRuleEvenOdd;
-    fillLayer.fillColor = [UIColor blackColor].CGColor;
-    fillLayer.opacity = 0.5;
+    
+    if (self.outsideColor)
+    {
+        fillLayer.fillColor = self.outsideColor.CGColor;
+        fillLayer.opacity = 1.f;
+    } else {
+        
+        fillLayer.fillColor = [UIColor blackColor].CGColor;
+        fillLayer.opacity = 0.5f;
+    }
     
     return fillLayer;
 }
