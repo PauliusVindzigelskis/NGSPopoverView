@@ -32,11 +32,11 @@
     } return self;
 }
 
--(instancetype)initWithCornerRadius:(CGFloat)corner direction:(NGSPopoverArrowPosition)direction arrowSize:(CGSize)arrSize
+-(instancetype)initWithCornerRadius:(CGFloat)corner direction:(NGSPopoverArrowDirection)direction arrowSize:(CGSize)arrSize
 {
     if (self = [self init])
     {
-        NSAssert((direction >=0 && direction < NGSPopoverArrowPositionCount), @"");
+        NSAssert((direction >=0 && direction < NGSPopoverArrowDirectionCount), @"");
         _arrowDirection = direction;
         _cornerRadius = corner;
         _arrowSize = arrSize;
@@ -81,11 +81,11 @@
     }
 }
 
--(void)setArrowDirection:(NGSPopoverArrowPosition)arrowDirection
+-(void)setArrowDirection:(NGSPopoverArrowDirection)arrowDirection
 {
-    NGSPopoverArrowPosition oldDirection = _arrowDirection;
+    NGSPopoverArrowDirection oldDirection = _arrowDirection;
     
-    NSAssert((arrowDirection >=0 && arrowDirection < NGSPopoverArrowPositionCount), @"");
+    NSAssert((arrowDirection >=0 && arrowDirection < NGSPopoverArrowDirectionCount), @"");
     _arrowDirection = arrowDirection;
     self.isArrowDirectionChanged = YES;
     
@@ -107,10 +107,10 @@
     
 }
 
-- (BOOL) isDirectionHorizontal:(NGSPopoverArrowPosition)position
+- (BOOL) isDirectionHorizontal:(NGSPopoverArrowDirection)position
 {
-    return (position == NGSPopoverArrowPositionLeft
-            || position == NGSPopoverArrowPositionRight);
+    return (position == NGSPopoverArrowDirectionLeft
+            || position == NGSPopoverArrowDirectionRight);
 }
 
 -(UIColor *)tintColor
@@ -148,20 +148,20 @@
 {
     
     UIEdgeInsets insets = UIEdgeInsetsZero;
-    switch ((NGSPopoverArrowPosition)self.arrowDirection) {
-        case NGSPopoverArrowPositionBottom:
+    switch ((NGSPopoverArrowDirection)self.arrowDirection) {
+        case NGSPopoverArrowDirectionBottom:
         {
             insets.bottom = self.arrowSize.height;
         }   break;
-        case NGSPopoverArrowPositionLeft:
+        case NGSPopoverArrowDirectionLeft:
         {
             insets.left = self.arrowSize.width;
         }   break;
-        case NGSPopoverArrowPositionTop:
+        case NGSPopoverArrowDirectionTop:
         {
             insets.top = self.arrowSize.height;
         }   break;
-        case NGSPopoverArrowPositionRight:
+        case NGSPopoverArrowDirectionRight:
         {
             insets.right = self.arrowSize.width;
         }   break;
@@ -248,8 +248,8 @@
     CGFloat arrowWidth = _arrowSize.width;
     CGFloat arrowHeight = _arrowSize.height;
     
-    switch ((NGSPopoverArrowPosition)self.arrowDirection) {
-        case NGSPopoverArrowPositionBottom:
+    switch ((NGSPopoverArrowDirection)self.arrowDirection) {
+        case NGSPopoverArrowDirectionBottom:
         {
             startPosition.y = self.frame.size.height;
             
@@ -259,7 +259,7 @@
             
             insets.bottom = arrowHeight;
         }   break;
-        case NGSPopoverArrowPositionLeft:
+        case NGSPopoverArrowDirectionLeft:
         {
             startPosition.x = 0.f;
             
@@ -270,7 +270,7 @@
             insets.left = arrowWidth;
         }   break;
         default:
-        case NGSPopoverArrowPositionTop:
+        case NGSPopoverArrowDirectionTop:
         {
             startPosition.y = 0.f;
             
@@ -280,7 +280,7 @@
             
             insets.top = arrowHeight;
         }   break;
-        case NGSPopoverArrowPositionRight:
+        case NGSPopoverArrowDirectionRight:
         {
             startPosition.x = self.frame.size.width;
                 
@@ -345,10 +345,10 @@
 
 - (BOOL) isArrowVertical
 {
-    return (self.arrowDirection == NGSPopoverArrowPositionTop || self.arrowDirection == NGSPopoverArrowPositionBottom);
+    return (self.arrowDirection == NGSPopoverArrowDirectionTop || self.arrowDirection == NGSPopoverArrowDirectionBottom);
 }
 
--(NGSPopoverArrowPosition) arrowDirectionForView:(UIView*)view superView:(UIView*)superview
+-(NGSPopoverArrowDirection) arrowDirectionForView:(UIView*)view superView:(UIView*)superview
 {
     //detect arrow direction
     CGRect frame = [view.superview convertRect:view.frame toView:superview];
@@ -359,14 +359,14 @@
     
     CGFloat maxVerticalValue = MAX(bottomSpace, topSpace);
     CGFloat maxHorizontalValue = MAX(leftSpace, rightSpace);
-    NGSPopoverArrowPosition direction;
+    NGSPopoverArrowDirection direction;
     if (maxHorizontalValue > maxVerticalValue)
     {
         //horizontal it is!
-        direction = leftSpace > rightSpace ? NGSPopoverArrowPositionRight : NGSPopoverArrowPositionLeft;
+        direction = leftSpace > rightSpace ? NGSPopoverArrowDirectionRight : NGSPopoverArrowDirectionLeft;
     } else {
         //vertical it is!
-        direction = topSpace > bottomSpace ? NGSPopoverArrowPositionBottom : NGSPopoverArrowPositionTop;
+        direction = topSpace > bottomSpace ? NGSPopoverArrowDirectionBottom : NGSPopoverArrowDirectionTop;
     }
     
     return direction;
@@ -380,7 +380,7 @@
     self.fromView = anchorView;
     UIView *superview = anchorView.window;
     
-    if (self.arrowDirection == NGSPopoverArrowPositionAutomatic)
+    if (self.arrowDirection == NGSPopoverArrowDirectionAutomatic)
     {
         self.arrowDirection = [self arrowDirectionForView:anchorView superView:superview];
     }
@@ -438,22 +438,22 @@
     CGFloat offset = 5.f;
     NSLayoutConstraint *first;
     NSLayoutConstraint *second;
-    switch ((NGSPopoverArrowPosition)self.arrowDirection) {
+    switch ((NGSPopoverArrowDirection)self.arrowDirection) {
             
-        case NGSPopoverArrowPositionBottom:
+        case NGSPopoverArrowDirectionBottom:
         {
             first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.f];
             second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0f constant:offset];
         }   break;
         
         default:
-        case NGSPopoverArrowPositionTop:
+        case NGSPopoverArrowDirectionTop:
         {
             first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.f];
             second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0f constant:-offset];
         }   break;
             
-        case NGSPopoverArrowPositionLeft:
+        case NGSPopoverArrowDirectionLeft:
         {
             first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0f constant:-offset];
             second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.f];
@@ -461,7 +461,7 @@
         }   break;
             
             
-        case NGSPopoverArrowPositionRight:
+        case NGSPopoverArrowDirectionRight:
         {
             first = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:offset];
             second = [NSLayoutConstraint constraintWithItem:anchorView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.f];

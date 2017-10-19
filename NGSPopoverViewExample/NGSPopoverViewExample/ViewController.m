@@ -38,7 +38,7 @@
 
 - (NGSPopoverView*) popoverViewWithCornerRadius:(CGFloat)cornerRadius
 {
-    NGSPopoverView* popover = [[NGSPopoverView alloc] initWithCornerRadius:cornerRadius direction:NGSPopoverArrowPositionAutomatic arrowSize:CGSizeMake(20.f, 20.f)];
+    NGSPopoverView* popover = [[NGSPopoverView alloc] initWithCornerRadius:cornerRadius direction:NGSPopoverArrowDirectionAutomatic arrowSize:CGSizeMake(20.f, 20.f)];
 
     
     UILabel *label = [[UILabel alloc] init];
@@ -88,7 +88,7 @@
     popover.outsideColor = [UIColor clearColor];
     popover.tintColor = [UIColor colorWithWhite:0 alpha:0.5f];
     
-    popover.arrowDirection = NGSPopoverArrowPositionBottom;
+    popover.arrowDirection = NGSPopoverArrowDirectionBottom;
     
     [popover showFromView:sender animated:YES];
 }

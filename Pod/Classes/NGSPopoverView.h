@@ -7,14 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, NGSPopoverArrowPosition)
+typedef NS_ENUM(NSInteger, NGSPopoverArrowDirection)
 {
-    NGSPopoverArrowPositionAutomatic,
-    NGSPopoverArrowPositionBottom,
-    NGSPopoverArrowPositionLeft,
-    NGSPopoverArrowPositionTop,
-    NGSPopoverArrowPositionRight,
-    NGSPopoverArrowPositionCount
+    NGSPopoverArrowDirectionAutomatic,
+    NGSPopoverArrowDirectionBottom,
+    NGSPopoverArrowDirectionLeft,
+    NGSPopoverArrowDirectionTop,
+    NGSPopoverArrowDirectionRight,
+    NGSPopoverArrowDirectionCount
 };
 
 @class NGSPopoverView;
@@ -40,7 +40,7 @@ IB_DESIGNABLE
 /*!
  * @brief Arrow direction to draw - left, right, top or bottom
  */
-@property (nonatomic, assign) IBInspectable NGSPopoverArrowPosition arrowDirection;
+@property (nonatomic, assign) IBInspectable NGSPopoverArrowDirection arrowDirection;
 
 /*!
  * @brief Arrow size in dimensions. How it will look like depends on arow direction.
@@ -98,7 +98,7 @@ IB_DESIGNABLE
  * @param arrowSize Arrow dimensions in CGSize. If not square, look differs for vertical and horizontal arrow.
  */
 -(instancetype)initWithCornerRadius:(CGFloat)cornerRadius
-                          direction:(NGSPopoverArrowPosition)arrowDirection
+                          direction:(NGSPopoverArrowDirection)arrowDirection
                           arrowSize:(CGSize)arrowSize;
 /*!
  * @brief Don't add content view manually! This method adds it with automatic position calculation according to arrow size and position.
