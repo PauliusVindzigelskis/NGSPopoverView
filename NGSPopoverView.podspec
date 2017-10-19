@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NGSPopoverView"
-  s.version          = "1.1.0"
+  s.version          = "1.2.0"
   s.summary          = "Universal simple popover view to show any kind of content which is subclass of UIView."
   s.homepage         = "https://github.com/PauliusVindzigelskis/NGSPopoverView"
  
