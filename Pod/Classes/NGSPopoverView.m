@@ -209,7 +209,6 @@
     
     UIBezierPath *path = [UIBezierPath bezierPath];
     
-    [self.tintColor setStroke];
     [self.tintColor setFill];
     
     [path moveToPoint:startPosition];
@@ -221,8 +220,7 @@
     [path addQuadCurveToPoint:point6 controlPoint:point6_control];
     [path addLineToPoint:point7];
     [path addQuadCurveToPoint:point8 controlPoint:point8_control];
-    
-    [path stroke];
+
     [path fill];
 }
 
@@ -253,7 +251,7 @@
     switch ((NGSPopoverArrowPosition)self.arrowDirection) {
         case NGSPopoverArrowPositionBottom:
         {
-            startPosition.y = self.frame.size.height - 0.5f;
+            startPosition.y = self.frame.size.height;
             
             point1 = CGPointMake(startPosition.x - arrowWidth/2, startPosition.y - arrowHeight);
             point2 = CGPointMake(point1.x + arrowWidth, point1.y);
@@ -263,7 +261,7 @@
         }   break;
         case NGSPopoverArrowPositionLeft:
         {
-            startPosition.x = 0.5f;
+            startPosition.x = 0.f;
             
             point1 = CGPointMake(startPosition.x + arrowWidth, startPosition.y - arrowHeight/2);
             point2 = CGPointMake(point1.x, startPosition.y + arrowHeight/2);
@@ -274,7 +272,7 @@
         default:
         case NGSPopoverArrowPositionTop:
         {
-            startPosition.y = 0.5f;
+            startPosition.y = 0.f;
             
             point1 = CGPointMake(startPosition.x + arrowWidth/2, startPosition.y + arrowHeight);
             point2 = CGPointMake(startPosition.x - arrowWidth/2, point1.y);
@@ -284,7 +282,7 @@
         }   break;
         case NGSPopoverArrowPositionRight:
         {
-            startPosition.x = self.frame.size.width - 0.5f;
+            startPosition.x = self.frame.size.width;
                 
             point1 = CGPointMake(startPosition.x - arrowWidth, startPosition.y + arrowHeight/2);
             point2 = CGPointMake(point1.x, startPosition.y - arrowHeight/2);
@@ -298,7 +296,6 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     
 
-    [self.tintColor setStroke];
     [self.tintColor setFill];
     
     [path setLineWidth:0.5f];
@@ -309,8 +306,6 @@
     [path addLineToPoint:point3];
     [path closePath];
     
-    
-    [path stroke];
     [path fill];
 }
 

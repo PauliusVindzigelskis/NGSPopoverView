@@ -80,7 +80,17 @@
     NGSPopoverView *popover = [self popoverViewWithCornerRadius:5.f];
     
     [popover showFromView:sender animated:YES];
+}
+
+- (IBAction)fithPressed:(id)sender
+{
+    NGSPopoverView *popover = [self popoverViewWithCornerRadius:5.f];
+    popover.outsideColor = [UIColor clearColor];
+    popover.tintColor = [UIColor colorWithWhite:0 alpha:0.5f];
     
+    popover.arrowDirection = NGSPopoverArrowPositionBottom;
+    
+    [popover showFromView:sender animated:YES];
 }
 
 @end
