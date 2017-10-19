@@ -592,7 +592,7 @@
     if (self.outsideColor)
     {
         fillLayer.fillColor = self.outsideColor.CGColor;
-        fillLayer.opacity = 1.f;
+        fillLayer.opacity = 1;
     } else {
         
         fillLayer.fillColor = [UIColor blackColor].CGColor;

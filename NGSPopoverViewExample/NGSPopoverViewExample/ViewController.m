@@ -70,6 +70,8 @@
     popover.shouldMaskSourceViewToVisible = YES;
     popover.maskedSourceViewCornerRadius = sender.frame.size.width / 2.f;
     
+    popover.outsideColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.5f];
+    
     [popover showFromView:sender animated:YES];
     
 }
