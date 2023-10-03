@@ -1,11 +1,10 @@
-// swift-tools-version: 5.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 5.4
 
 import PackageDescription
 
 let package = Package(
     name: "NGSPopoverView",
-    platforms: [.iOS(.v7)],
+    platforms: [.iOS(.v12)],
     products: [
         .library(
             name: "NGSPopoverView",
@@ -16,6 +15,6 @@ let package = Package(
             name: "NGSPopoverView",
             path: "Pod/Classes",
             publicHeadersPath: ""
-	),
+        ),
     ]
 )
